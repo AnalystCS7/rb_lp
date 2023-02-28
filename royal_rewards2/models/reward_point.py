@@ -7,7 +7,7 @@ class RewardPoint(models.Model):
     name = fields.Char(string='Name')
     customer_id = fields.Many2one(comodel_name='res.partner', string='Customer')
     point_balance = fields.Float(string='Point Balance', default=0.0, readonly=True)
-    point_history = fields.One2many(comodel_name='reward.point.history', inverse_name='point_id', string='Point History')
+    point_history = fields.One2many(comodel_name='reward.point.history', inverse_name='reward_point_id', string='Point History')
     tier_id = fields.Many2one(comodel_name='reward.point.tier', string='Tier')
     state = fields.Selection(selection=[('active', 'Active'), ('inactive', 'Inactive')], string='Status', default='active', readonly=True)
 
