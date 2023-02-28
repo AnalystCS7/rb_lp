@@ -29,6 +29,20 @@
         </field>
     </record>
 
+    <record id="reward_point_view_search" model="ir.ui.view">
+        <field name="name">reward.point.search</field>
+        <field name="model">reward.point</field>
+        <field name="arch" type="xml">
+            <search string="Reward Points">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="point_balance"/>
+                <field name="tier_id"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
     <menuitem id="menu_reward_points" name="Reward Points" parent="base.menu_sales" sequence="20" groups="group_reward_user"/>
     <menuitem id="menu_reward_points_config" name="Rewards Configuration" parent="base.menu_sales" sequence="30" groups="group_reward_manager"/>
 </odoo>
