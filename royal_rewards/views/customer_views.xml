@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Define the view for the customer form -->
+    <record model="ir.ui.view" id="royal_rewards.customer_form_view">
+      <field name="name">res.partner.royal_rewards.form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group[@name='purchases']" position="after">
+          <group name="royal_rewards" string="Royal Rewards">
+            <field name="royal_rewards_balance" string="Balance" attrs="{'readonly': [('is_company', '=', False)]}"/>
+            <field name="royal_rewards_tier_id" string="Tier" options="{'no_create': True}" attrs="{'readonly': [('is_company', '=', False)]}"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

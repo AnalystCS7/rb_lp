@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Define the view for the tier form -->
+    <record model="ir.ui.view" id="royal_rewards.tier_form_view">
+      <field name="name">royal_rewards.tier.form</field>
+      <field name="model">royal_rewards.tier</field>
+      <field name="arch" type="xml">
+        <form string="Tier">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="multiplier"/>
+              <field name="point_cost"/>
+              <field name="point_gift"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Define the view for the tier tree -->
+    <record model="ir.ui.view" id="royal_rewards.tier_tree_view">
+      <field name="name">royal_rewards.tier.tree</field>
+      <field name="model">royal_rewards.tier</field>
+      <field name="arch" type="xml">
+        <tree string="Tiers">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="multiplier"/>
+          <field name="point_cost"/>
+          <field name="point_gift"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Define the action for the tier list view -->
+    <record model="ir.actions.act_window" id="royal_rewards.tier_action">
+      <field name="name">Tiers</field>
+      <field name="res_model">royal_rewards.tier</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the tier menu item -->
+    <menuitem id="royal_rewards.tier_menu" name="Tiers" parent="royal_rewards.main_menu"/>
+    <menuitem id="royal_rewards.tier_menu_list" name="Tiers" parent="royal_rewards.tier_menu" action="royal_rewards.tier_action"/>
+    <menuitem id="royal_rewards.tier_menu_form" name="Create Tier" parent="royal_rewards.tier_menu" action="ir.actions.act_window" context="{'default_model': 'royal_rewards.tier', 'default_name': 'New Tier'}"/>
+  </data>
+</odoo>
