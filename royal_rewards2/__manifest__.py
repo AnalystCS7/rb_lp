@@ -12,6 +12,7 @@
         'data/reward_point_data.xml',
         'data/reward_point_rule_data.xml',
         'data/reward_point_tier_data.xml',
+        'data/reward_point_rule_type.xml',
         'data/ir_cron_data.xml',
         'views/reward_point_views.xml',
         'views/reward_point_rule_views.xml',

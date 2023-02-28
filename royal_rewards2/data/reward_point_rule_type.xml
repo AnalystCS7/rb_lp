@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="reward_point_rule_type_signup" model="reward.point.rule.type">
+            <field name="name">Sign Up</field>
+        </record>
+    </data>
+</odoo>
