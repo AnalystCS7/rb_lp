@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="reward_point_tier_basic" model="reward.point.tier">
+            <field name="name">Basic</field>
+            <field name="points_required">0</field>
+            <field name="discount_type" ref="reward_point_type_fixed"/>
+            <field name="discount_value">5</field>
+        </record>
+
+        <record id="reward_point_tier_silver" model="reward.point.tier">
+            <field name="name">Silver</field>
+            <field name="points_required">500</field>
+            <field name="discount_type" ref="reward_point_type_percentage"/>
+            <field name="discount_value">5</field>
+        </record>
+
+        <record id="reward_point_tier_gold" model="reward.point.tier">
+            <field name="name">Gold</field>
+            <field name="points_required">1500</field>
+            <field name="discount_type" ref="reward_point_type_percentage"/>
+            <field name="discount_value">10</field>
+        </record>
+
+        <record id="reward_point_tier_platinum" model="reward.point.tier">
+            <field name="name">Platinum</field>
+            <field name="points_required">3000</field>
+            <field name="discount_type" ref="reward_point_type_percentage"/>
+            <field name="discount_value">15</field>
+        </record>
+
+    </data>
+</odoo>

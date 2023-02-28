@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_reward_point_tree" model="ir.ui.view">
+            <field name="name">reward.point.tree</field>
+            <field name="model">reward.point</field>
+            <field name="arch" type="xml">
+                <tree string="Reward Points">
+                    <field name="user_id"/>
+                    <field name="order_id"/>
+                    <field name="points"/>
+                    <field name="redeemed"/>
+                    <field name="tier_id"/>
+                    <field name="expiry_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_reward_point_form" model="ir.ui.view">
+            <field name="name">reward.point.form</field>
+            <field name="model">reward.point</field>
+            <field name="arch" type="xml">
+                <form string="Reward Points">
+                    <group>
+                        <field name="user_id"/>
+                        <field name="order_id"/>
+                        <field name="points"/>
+                        <field name="redeemed"/>
+                        <field name="tier_id"/>
+                        <field name="expiry_date"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="reward_point_search_view" model="ir.ui.view">
+            <field name="name">reward.point.search</field>
+            <field name="model">reward.point</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="user_id"/>
+                    <field name="order_id"/>
+                    <field name="points"/>
+                    <field name="redeemed"/>
+                    <field name="tier_id"/>
+                    <field name="expiry_date"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

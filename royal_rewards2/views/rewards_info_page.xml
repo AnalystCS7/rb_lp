@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="rewards_info_page">
+            <t t-call="website.layout">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Royal Rewards</h1>
+                            <p>Earn points for shopping, referring friends, and more! Redeem your points for discounts on your next order. See below for details.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div t-raw="0" t-esc="website_view.ref('royal_rewards.rewards_info')._render({'reward_rules': reward_rules, 'reward_tiers': reward_tiers}, engine='ir.qweb')"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

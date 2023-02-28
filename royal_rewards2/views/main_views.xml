@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="main_menu" name="Royal Rewards" sequence="1">
+            <div class="oe_secondary_menu">
+                <div class="oe_secondary_submenu">
+                    <a href="/my/rewards" class="oe_menu_leaf">
+                        <span class="oe_menu_text">My Rewards</span>
+                    </a>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

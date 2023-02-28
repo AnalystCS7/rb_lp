@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_reward_user" model="res.groups">
+        <field name="name">Reward User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_reward_manager" model="res.groups">
+        <field name="name">Reward Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_reward_user'))]"/>
+    </record>
+
+    <record id="group_reward_admin" model="res.groups">
+        <field name="name">Reward Admin</field>
+        <field name="implied_ids" eval="[(4, ref('group_reward_manager'))]"/>
+    </record>
+
+    <record id="ir_actions_act_reward_points" model="ir.actions.act_window">
+        <field name="name">Reward Points</field>
+        <field name="res_model">reward.point</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="royal_rewards2.reward_point_search_view"/>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add new Reward Points.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_reward_points" name="Reward Points" parent="base.menu_sales" sequence="20" groups="group_reward_user"/>
+    <menuitem id="menu_reward_points_config" name="Rewards Configuration" parent="base.menu_sales" sequence="30" groups="group_reward_manager"/>
+</odoo>
