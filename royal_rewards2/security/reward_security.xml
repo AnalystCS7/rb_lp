@@ -15,7 +15,7 @@
         <field name="implied_ids" eval="[(4, ref('group_reward_manager'))]"/>
     </record>
 
-    <record id="ir_actions_act_reward_points" model="ir.actions.act_window">
+    <record id="ir_actions_act_reward_points" model="ir.actions.act_window" groups="base.group_user">
         <field name="name">Reward Points</field>
         <field name="res_model">reward.point</field>
         <field name="view_type">form</field>
@@ -29,7 +29,7 @@
         </field>
     </record>
 
-    <record id="reward_point_view_search" model="ir.ui.view">
+    <record id="reward_point_search_view" model="ir.ui.view">
         <field name="name">reward.point.search</field>
         <field name="model">reward.point</field>
         <field name="arch" type="xml">
