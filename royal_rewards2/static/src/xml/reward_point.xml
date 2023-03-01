@@ -1,9 +1,0 @@
-<templates>
-    <t t-name="RewardPointWidget">
-        <div class="reward-point-widget" data-points="0">
-            <div class="reward-point-balance">
-                <t t-esc="'Reward Points: ' + widget.points"/>
-            </div>
-        </div>
-    </t>
-</templates>

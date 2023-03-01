@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_reward_manager,reward.manager,model_reward,,1,1,1,1
-access_reward_user,reward.user,model_reward,,1,0,0,0
-access_reward_tier_manager,reward.tier.manager,model_reward_tier,,1,1,1,1
-access_reward_tier_user,reward.tier.user,model_reward_tier,,1,0,0,0
