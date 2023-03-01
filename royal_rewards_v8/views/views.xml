@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="royal_rewards_v8.list">
+      <field name="name">royal_rewards_v8 list</field>
+      <field name="model">royal_rewards_v8.model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="royal_rewards_v8.action_window">
+      <field name="name">royal_rewards_v8 window</field>
+      <field name="res_model">royal_rewards_v8.model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="royal_rewards_v8.action_server">
+      <field name="name">royal_rewards_v8 server</field>
+      <field name="model_id" ref="model_royal_rewards_v8_model"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="royal_rewards_v8" id="royal_rewards_v8.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="royal_rewards_v8.menu_1" parent="royal_rewards_v8.menu_root"/>
+    <menuitem name="Menu 2" id="royal_rewards_v8.menu_2" parent="royal_rewards_v8.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="royal_rewards_v8.menu_1_list" parent="royal_rewards_v8.menu_1"
+              action="royal_rewards_v8.action_window"/>
+    <menuitem name="Server to list" id="royal_rewards_v8" parent="royal_rewards_v8.menu_2"
+              action="royal_rewards_v8.action_server"/>
+
+  </data>
+</odoo>
