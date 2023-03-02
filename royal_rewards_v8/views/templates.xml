@@ -1,22 +1,23 @@
 <odoo>
-    <data>
-        <template id="listing"> 
-        <ul> 
-            <li t-foreach="objects" t-as="object"> 
-            <a t-attf-href="#{ root }/objects/#{ object.id }"> 
-                <t t-esc="object.display_name"/> 
-            </a> 
-            </li> 
-        </ul> 
-        </template> 
-        <template id="object"> 
-        <h1><t t-esc="object.display_name"/></h1> 
-        <dl> 
-            <t t-foreach="object._fields" t-as="field"> 
-            <dt><t t-esc="field"/></dt> 
-            <dd><t t-esc="object[field]"/></dd> 
-            </t> 
-        </dl> 
-            </template> 
-    </data>
+    <template id="user_list" name="User List">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row">
+                    <t t-foreach="user_list" t-as="user">
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><t t-esc="user.name"/></h5>
+                                    <p class="card-text"><strong>Email:</strong> <t t-esc="user.email"/></p>
+                                    <p class="card-text"><strong>Phone:</strong> <t t-esc="user.phone"/></p>
+                                    <p class="card-text"><strong>Country:</strong> <t t-esc="user.country"/></p>
+                                    <p class="card-text"><strong>City:</strong> <t t-esc="user.city"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
 </odoo>

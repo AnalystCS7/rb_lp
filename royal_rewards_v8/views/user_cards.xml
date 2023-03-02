@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="user_cards" name="User Cards">
+            <t t-foreach="cards" t-as="card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><t t-esc="card.name"/></h5>
+                        <p class="card-text"><t t-esc="card.email"/></p>
+                        <a href="<t t-esc="card.signup_url"/>" class="btn btn-primary">Sign up</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

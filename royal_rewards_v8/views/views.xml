@@ -1,60 +1,49 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="royal_rewards_v8.list">
-      <field name="name">royal_rewards_v8 list</field>
-      <field name="model">royal_rewards_v8.model</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
+    <record id="action_open_royal_rewards_v8" model="ir.actions.act_window">
+        <field name="name">Royal Rewards V8</field>
+        <field name="res_model">royal_rewards_v8.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Royal Rewards V8 record
+            </p>
+        </field>
     </record>
 
+    <!-- This view displays the user cards on the main page -->
+    <template id="user_cards_view">
+      <t t-foreach="users" t-as="user">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><t t-esc="user.name"/></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><t t-esc="user.email"/></h6>
+            <p class="card-text"><t t-esc="user.phone"/></p>
+          </div>
+        </div>
+      </t>
+    </template>
 
-    <!-- actions opening views on models -->
+    <!-- This view replaces the default main page with the user cards view -->
+    <template id="main_view">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Royal Rewards V8</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <t t-raw="user_cards_view"/>
+          </div>
+        </div>
+      </div>
+    </template>
 
-    <record model="ir.actions.act_window" id="royal_rewards_v8.action_window">
-      <field name="name">royal_rewards_v8 window</field>
-      <field name="res_model">royal_rewards_v8.model</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-
-    <!-- server action to the one above -->
-
-    <record model="ir.actions.server" id="royal_rewards_v8.action_server">
-      <field name="name">royal_rewards_v8 server</field>
-      <field name="model_id" ref="model_royal_rewards_v8_model"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-
-
-    <!-- Top menu item -->
-
-    <menuitem name="royal_rewards_v8" id="royal_rewards_v8.menu_root"/>
-
-    <!-- menu categories -->
-
-    <menuitem name="Menu 1" id="royal_rewards_v8.menu_1" parent="royal_rewards_v8.menu_root"/>
-    <menuitem name="Menu 2" id="royal_rewards_v8.menu_2" parent="royal_rewards_v8.menu_root"/>
-
-    <!-- actions -->
-
-    <menuitem name="List" id="royal_rewards_v8.menu_1_list" parent="royal_rewards_v8.menu_1"
-              action="royal_rewards_v8.action_window"/>
-    <menuitem name="Server to list" id="royal_rewards_v8" parent="royal_rewards_v8.menu_2"
-              action="royal_rewards_v8.action_server"/>
+    <menuitem id="menu_royal_rewards" name="Royal Rewards V8" sequence="10" />
+    <menuitem name="Royal Rewards V8" id="menu_open_royal_rewards_v8" parent="your_parent_menu_id" action="action_open_royal_rewards_v8"/>
 
   </data>
 </odoo>
